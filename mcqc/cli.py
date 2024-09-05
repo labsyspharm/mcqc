@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.mixture import GaussianMixture
 from scipy.stats import norm
+from . import __version__
 
 
 def compute_gmm(data):
@@ -57,6 +58,9 @@ def main():
     parser.add_argument('input')
     parser.add_argument('output')
     parser.add_argument('--output-filtered')
+    parser.add_argument(
+        '--version', action='version', version=f'mcqc {__version__}'
+    )
     args = parser.parse_args()
     
     df = pd.read_csv(args.input)
